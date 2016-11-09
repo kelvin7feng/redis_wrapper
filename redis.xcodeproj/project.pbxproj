@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B62761111DC786A0004AE466 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B62761101DC786A0004AE466 /* main.cpp */; };
+		B62761191DC78717004AE466 /* libhiredis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B62761181DC78717004AE466 /* libhiredis.a */; };
+		B62761371DCA1348004AE466 /* redis_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B62761351DCA1348004AE466 /* redis_client.cpp */; };
+		B627613B1DCA189E004AE466 /* redis_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B62761391DCA189E004AE466 /* redis_test.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,12 @@
 /* Begin PBXFileReference section */
 		B627610D1DC786A0004AE466 /* redis */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = redis; sourceTree = BUILT_PRODUCTS_DIR; };
 		B62761101DC786A0004AE466 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		B62761171DC786D3004AE466 /* hiredis */ = {isa = PBXFileReference; lastKnownFileType = folder; path = hiredis; sourceTree = "<group>"; };
+		B62761181DC78717004AE466 /* libhiredis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libhiredis.a; path = hiredis/libhiredis.a; sourceTree = "<group>"; };
+		B62761351DCA1348004AE466 /* redis_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = redis_client.cpp; path = class/redis_client.cpp; sourceTree = "<group>"; };
+		B62761361DCA1348004AE466 /* redis_client.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = redis_client.hpp; path = class/redis_client.hpp; sourceTree = "<group>"; };
+		B62761391DCA189E004AE466 /* redis_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = redis_test.cpp; path = test/redis_test.cpp; sourceTree = "<group>"; };
+		B627613A1DCA189E004AE466 /* redis_test.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = redis_test.hpp; path = test/redis_test.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B62761191DC78717004AE466 /* libhiredis.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +51,10 @@
 		B62761041DC786A0004AE466 = {
 			isa = PBXGroup;
 			children = (
+				B62761541DD35A0D004AE466 /* lib */,
+				B62761381DCA1881004AE466 /* test */,
+				B62761341DCA1322004AE466 /* class */,
+				B62761171DC786D3004AE466 /* hiredis */,
 				B627610F1DC786A0004AE466 /* redis */,
 				B627610E1DC786A0004AE466 /* Products */,
 			);
@@ -60,6 +74,32 @@
 				B62761101DC786A0004AE466 /* main.cpp */,
 			);
 			path = redis;
+			sourceTree = "<group>";
+		};
+		B62761341DCA1322004AE466 /* class */ = {
+			isa = PBXGroup;
+			children = (
+				B62761351DCA1348004AE466 /* redis_client.cpp */,
+				B62761361DCA1348004AE466 /* redis_client.hpp */,
+			);
+			name = class;
+			sourceTree = "<group>";
+		};
+		B62761381DCA1881004AE466 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				B62761391DCA189E004AE466 /* redis_test.cpp */,
+				B627613A1DCA189E004AE466 /* redis_test.hpp */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		B62761541DD35A0D004AE466 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				B62761181DC78717004AE466 /* libhiredis.a */,
+			);
+			name = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +158,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B627613B1DCA189E004AE466 /* redis_test.cpp in Sources */,
+				B62761371DCA1348004AE466 /* redis_client.cpp in Sources */,
 				B62761111DC786A0004AE466 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +251,11 @@
 		B62761151DC786A0004AE466 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/hiredis";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/hiredis",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -216,6 +263,11 @@
 		B62761161DC786A0004AE466 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/hiredis";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/hiredis",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

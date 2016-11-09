@@ -7,9 +7,15 @@
 //
 
 #include <iostream>
+#include <string>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+#include "redis_test.hpp"
+
+int main(int argc, char **argv)
+{
+    TestRedis test_redis;
+    int failures = test_redis.RunTests();
+    std::cout << "failures: " << failures <<std::endl;
+    
     return 0;
 }
