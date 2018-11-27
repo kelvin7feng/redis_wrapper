@@ -10,6 +10,9 @@
 #define redis_test_hpp
 
 #include <stdio.h>
+#include "redis_client.hpp"
+
+using namespace RedisWrap;
 
 class TestRedis;
 typedef int (TestRedis::*TestRedisMemberPointer)();

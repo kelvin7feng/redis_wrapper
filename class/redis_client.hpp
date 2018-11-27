@@ -16,47 +16,49 @@
 
 using namespace std;
 
-class RedisClient
-{
-    enum CmdType {
-        SET = 1,
-        GET = 2,
-        HSET = 3,
-        HGET = 4,
+namespace RedisWrap {
+    class RedisClient
+    {
+        enum CmdType {
+            SET = 1,
+            GET = 2,
+            HSET = 3,
+            HGET = 4,
+        };
+    public:
+        RedisClient();
+        RedisClient(const string &host, unsigned int port);
+        RedisClient(const RedisClient &rc);
+        virtual ~RedisClient();
+        
+        string GetReplyContent(redisReply& r);
+        void FreeReply(redisReply *r);
+        
+        int Connect();
+        bool IsConnect();
+        
+        int Set(const string &key, const string &value);
+        int Set(int64_t key, const string &value);
+        int Get(const string &key, redisReply** result);
+        int Get(int64_t key, redisReply** result);
+        
+        int HSet(const string &key, const string &filed, const string &value);
+        int HSet(int64_t key, int64_t filed, const string &value);
+        int HGet(const string &key, const string &filed, redisReply** r);
+        int HGet(int64_t key, int64_t filed, redisReply** r);
+        
+    private:
+        redisReply* ExcuteCommand(const char* format, ...);
+        bool IsExcuteSucceed(int cmd_type, redisReply* r);
+        
+        string _host;
+        unsigned int _port;
+        bool _is_connect;
+        struct timeval _timeout;
+        
+        redisContext *_redis_context;
+        redisReply *_reply;
     };
-public:
-    RedisClient();
-    RedisClient(const string &host, unsigned int port);
-    RedisClient(const RedisClient &rc);
-    virtual ~RedisClient();
-    
-    string GetReplyContent(redisReply& r);
-    void FreeReply(redisReply *r);
-    
-    int Connect();
-    bool IsConnect();
-    
-    int Set(const string &key, const string &value);
-    int Set(int64_t key, const string &value);
-    int Get(const string &key, redisReply& result);
-    int Get(int64_t key, redisReply& result);
-    
-    int HSet(const string &key, const string &filed, const string &value);
-    int HSet(int64_t key, int64_t filed, const string &value);
-    int HGet(const string &key, const string &filed, redisReply& r);
-    int HGet(int64_t key, int64_t filed, redisReply* r);
-    
-private:
-    redisReply* ExcuteCommand(const char* format, ...);
-    bool IsExcuteSucceed(int cmd_type, redisReply* r);
-    
-    string _host;
-    unsigned int _port;
-    bool _is_connect;
-    struct timeval _timeout;
-    
-    redisContext *_redis_context;
-    redisReply *_reply;
-};
+}
 
 #endif /* redis_client_hpp */

@@ -7,7 +7,6 @@
 //
 
 #include "redis_test.hpp"
-#include "redis_client.hpp"
 
 TestRedis::TestRedis()
 {
@@ -90,10 +89,11 @@ int TestRedis::Test6()
     rc.Connect();
     
     string key = "name";
-    redisReply reply;
-    int result = rc.Get(key, reply);
-    std::string str = rc.GetReplyContent(reply);
+    redisReply* reply;
+    int result = rc.Get(key, &reply);
+    std::string str = rc.GetReplyContent(*reply);
     std::cout << str << std::endl;
+    rc.FreeReply(reply);
     if(result == REDIS_OK){
         return 0;
     } else {
@@ -108,10 +108,11 @@ int TestRedis::Test7()
     rc.Connect();
     
     int64_t key = 9999;
-    redisReply reply;
-    int result = rc.Get(key, reply);
-    std::string str = rc.GetReplyContent(reply);
+    redisReply* reply;
+    int result = rc.Get(key, &reply);
+    std::string str = rc.GetReplyContent(*reply);
     std::cout << str << std::endl;
+    rc.FreeReply(reply);
     if(result == REDIS_OK){
         return 0;
     } else {
@@ -124,10 +125,11 @@ int TestRedis::Test8()
     RedisClient rc("127.0.0.1",6379);
     rc.Connect();
     
-    redisReply reply;
-    int result = rc.HGet("student", "name", reply);
-    std::string str = rc.GetReplyContent(reply);
+    redisReply* reply;
+    int result = rc.HGet("student", "name", &reply);
+    std::string str = rc.GetReplyContent(*reply);
     std::cout << str << std::endl;
+    rc.FreeReply(reply);
     if(result == REDIS_OK){
         return 0;
     } else {
