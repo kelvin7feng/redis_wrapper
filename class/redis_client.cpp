@@ -6,6 +6,7 @@
 //  Copyright © 2016年 kelvin. All rights reserved.
 //
 
+#include <string.h>
 #include "redis_client.hpp"
 
 namespace RedisWrap {
