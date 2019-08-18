@@ -16,7 +16,7 @@ SET(SRC_LIST ./class/redis_client.cpp ./redis/main.cpp ./test/redis_test.cpp)
 #设置变量
 SET(PROJECT_ROOT_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
 #设置头文件搜索目录
-INCLUDE_DIRECTORIES("${PROJECT_ROOT_PATH}/hiredis/")
+INCLUDE_DIRECTORIES("${PROJECT_ROOT_PATH}/third_party/hiredis-0.13.3/")
 INCLUDE_DIRECTORIES("${PROJECT_ROOT_PATH}/class/")
 INCLUDE_DIRECTORIES("${PROJECT_ROOT_PATH}/test/")
 #增加子目录

@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/opt/dev/redis_wrapper/hiredis -I/opt/dev/redis_wrapper/class -I/opt/dev/redis_wrapper/test 
+CXX_INCLUDES = -I/opt/dev/redis_wrapper/third_party/hiredis-0.13.3 -I/opt/dev/redis_wrapper/class -I/opt/dev/redis_wrapper/test 
 

@@ -3,8 +3,9 @@
 
 test/CMakeFiles/test.dir/redis_test.cpp.o
  ../class/redis_client.hpp
- ../hiredis/hiredis.h
- ../hiredis/read.h
- ../hiredis/sds.h
+ ../third_party/hiredis-0.13.3/hiredis.h
+ ../third_party/hiredis-0.13.3/read.h
+ ../third_party/hiredis-0.13.3/sds.h
+ ../third_party/hiredis-0.13.3/win32.h
  /opt/dev/redis_wrapper/test/redis_test.cpp
  /opt/dev/redis_wrapper/test/redis_test.hpp

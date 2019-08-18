@@ -1,5 +1,5 @@
 1.安装redis server
-下载redid: wget http://download.redis.io/releases/redis-3.0.0.tar.gz
+下载redis: wget http://download.redis.io/releases/redis-3.0.0.tar.gz
 tar zxvf redis-3.0.0.tar.gz
 编译时依赖的库
 编译redis时 提示make cc Command not found
@@ -11,7 +11,7 @@ make install
 cd src
 redis-server &
 
-2.安装hiredis
+2.安装hiredis(程序依赖库)
 下载hiredis
 https://github.com/redis/hiredis/tree/v0.13.3
 hiredis-0.13.3.zip

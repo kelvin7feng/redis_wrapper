@@ -12,7 +12,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../hiredis"
+  "../third_party/hiredis-0.13.3"
   "../class"
   "../test"
   )

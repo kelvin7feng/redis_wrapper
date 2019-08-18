@@ -14,9 +14,15 @@ iostream
 hiredis.h
 ../class/hiredis.h
 
-../hiredis/hiredis.h
+../test/redis_test.hpp
+stdio.h
+-
+redis_client.hpp
+../test/redis_client.hpp
+
+../third_party/hiredis-0.13.3/hiredis.h
 read.h
-../hiredis/read.h
+../third_party/hiredis-0.13.3/read.h
 stdarg.h
 -
 sys/time.h
@@ -24,25 +30,21 @@ sys/time.h
 stdint.h
 -
 sds.h
-../hiredis/sds.h
+../third_party/hiredis-0.13.3/sds.h
 
-../hiredis/read.h
+../third_party/hiredis-0.13.3/read.h
 stdio.h
 -
 
-../hiredis/sds.h
+../third_party/hiredis-0.13.3/sds.h
 sys/types.h
 -
 stdarg.h
 -
-stdint.h
--
+win32.h
+../third_party/hiredis-0.13.3/win32.h
 
-../test/redis_test.hpp
-stdio.h
--
-redis_client.hpp
-../test/redis_client.hpp
+../third_party/hiredis-0.13.3/win32.h
 
 /opt/dev/redis_wrapper/class/redis_client.cpp
 string.h
